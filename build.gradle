@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    api fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {
     compileSdkVersion project.properties.projectCompileSdkVersion
-    buildToolsVersion project.properties.projectBuildToolsVersion
+//    buildToolsVersion '28.0.3'
 
     sourceSets {
         main {
@@ -18,8 +18,11 @@ android {
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
         }
-        instrumentTest.setRoot('tests')
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
+    }
+    defaultConfig {
+        minSdkVersion 7
+        targetSdkVersion 26
     }
 }
